@@ -157,7 +157,6 @@ https://github.com/gnab/remark/issues/50
           float: right;
       }
 
-      
 
       /* http://stackoverflow.com/questions/16311164/css-box-shadow-is-so-dark-when-printed*/
       @media print {
@@ -223,15 +222,23 @@ $$
 
 ---
 # Error variance estimation
- * consistent __error variance estimation__
 
-<img src="Fig/cpme.png" style="width: 400px">
-<img src="Fig/scaled_error.png" style="width: 400px">
+<img src="Fig/cpme.png" style="width: 400px; float: left">
+<img src="Fig/scaled_error.png" style="width: 400px; float: left; margin-right: 40px">
+ * data distribution general uneven
+ * the expected error of the climatology thus not constant
+ * where we have more data, a smaller error is expected
+ * for some application, it is peferable to mask areas where the expected error is high
 
 ---
 # Outlier
- * can detect and remove __outliers__
-
+<img src="Fig/DIVAnd_qc0.png" style="width: 350px; float: left">
+<img src="Fig/DIVAnd_qc1.png" style="width: 350px; float: left">
+<img src="Fig/DIVAnd_qc2.png" style="width: 350px; float: left; margin-right: 40px">
+* outliers have generally quite different values than other data points in the vincinity
+* analysis represent the mean state smoothed over a certain length-scale
+* the residual is the difference between the observations and the analysis
+* outliers have often large residuals
 ---
 
 # Ways to use DIVAnd
@@ -255,9 +262,10 @@ $$
 
 
 ---
-# DIVA updates
+# DIVAnd and DIVA
 
-* We aim to fully rewrite DIVA in __Julia__ (DIVAnd.jl)
+* DIVA: Fortran tool with shell scripts
+* DIVAnd: rewrite of DIVA in __Julia__ (DIVAnd.jl)
 * Julia: good trade-off between __efficiency__ of a compiled language and __flexibility__ of a dynamic language
 * Facilitate the installation:
   * Use __Jupyter notebooks__ fully configured environment for DIVAnd.jl
@@ -309,6 +317,13 @@ Jupyterhub: __multiple__ users
 ![jh:](Fig/jupyterhub.svg)
 
 ---
+# Jupyter lab
+Jupyter lab interface: more similar to an Integrated Development Environment (IDE)
+![jh:](Fig/jupyterlab.png)
+
+
+
+---
 # Overview
 
 * Overview of main compenets in the Virtual research environement used during this workshop
@@ -338,6 +353,7 @@ Jupyterhub: __multiple__ users
 class: middle
 # Conclusions
 
+* DIVAnd and DIVA are open source and available under the GPL licences
 * New approach to generate DIVA climatologies using a cloud computing infrastructure
 * Template of jupyter notebooks are be provided which users can adapt
   * Improve the __consistency__ between product
@@ -345,6 +361,7 @@ class: middle
 * Jupyter notebook is not a software specific to SeaDataCloud
   * Users might already be familiar with Jupyter notebooks
   * But if not, learning to work with Jupyter notebooks can also be useful in other contexts
+  * Jupyter can easily installed on a local machine
 * Jupyterhub:
   * Docker allows to provide a __standardized computing environment__ to all users
   * The jupyter notebook can be used to fully __document the generation of the climatology__
