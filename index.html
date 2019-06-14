@@ -152,6 +152,11 @@ https://github.com/gnab/remark/issues/50
           /*float: right;*/
       }
 
+      img[alt*="jl:"] {
+          width: 430px;
+          float: right;
+      }
+
       img[alt*="synetic:"] {
           width: 500px;
           float: right;
@@ -223,7 +228,7 @@ $$
 ---
 # Error variance estimation
 
-<img src="Fig/cpme.png" style="width: 400px; float: left">
+<img src="Fig/cpme.png" style="width: 400px; float: left; margin-right: 40px">
 <img src="Fig/scaled_error.png" style="width: 400px; float: left; margin-right: 40px">
  * data distribution general uneven
  * the expected error of the climatology thus not constant
@@ -318,9 +323,9 @@ Jupyterhub: __multiple__ users
 
 ---
 # Jupyter lab
-Jupyter lab interface: more similar to an Integrated Development Environment (IDE)
-![jh:](Fig/jupyterlab.png)
-
+![jl:](Fig/jupyterlab.png)
+* Jupyter lab interface: more similar to an Integrated Development Environment (IDE)
+* Compatible with the same notebook format
 
 
 ---
@@ -341,6 +346,12 @@ Jupyter lab interface: more similar to an Integrated Development Environment (ID
 * Julia packages are precompiled
 * Transfer files via __WebDAV__ in Julia:
    * Using explicit download and upload requests
+```julia
+# download from NextCloud to Jupyter Hub
+get("file_in_nextcloud.nc","file_in_jupyterhub.nc")
+# upload from Jupyter Hub to NextCloud
+put("file_in_jupyterhub.nc","file_in_nextcloud.nc")
+```
 
 <!--
 <video autoplay loop>
